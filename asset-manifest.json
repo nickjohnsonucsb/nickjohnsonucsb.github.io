@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.47d8683d.css",
+    "main.js": "/static/js/main.c5f50520.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/school-selfie.jpg": "/static/media/school-selfie.9371b50321002325415d.jpg",
+    "static/media/News-And-Events.png": "/static/media/News-And-Events.9b81c76460d6fb4d11c8.png",
+    "static/media/Data-Tool-Explorer-Table.png": "/static/media/Data-Tool-Explorer-Table.4ad894ff619971d58623.png",
+    "static/media/cookbook-home.png": "/static/media/cookbook-home.df2356a1c127de6d5826.png",
+    "static/media/Data-Tool-Explorer-Head.png": "/static/media/Data-Tool-Explorer-Head.cecdbf79c2cadf139087.png",
+    "static/media/cookbook-comments.png": "/static/media/cookbook-comments.759efaaf829f60aa2bab.png",
+    "static/media/Data-Lit-Series.png": "/static/media/Data-Lit-Series.eaff1feace44880d82e9.png",
+    "static/media/Info360Tool.png": "/static/media/Info360Tool.100a90d19119b12433a5.png",
+    "static/media/SecretsRotationWorkflow.png": "/static/media/SecretsRotationWorkflow.c7e0945d4a5de8f9639c.png",
+    "static/media/courseListEx.png": "/static/media/courseListEx.a26ef3c1d04ec43980b6.png",
+    "static/media/PieChartEx.png": "/static/media/PieChartEx.882f1a77c91d8bc72c77.png",
+    "static/media/cookbook-friends.png": "/static/media/cookbook-friends.b999896ed8bb3f6f7c73.png",
+    "static/media/pixel_water_wallpaper.jpg": "/static/media/pixel_water_wallpaper.2131a3b076caf3d6d13b.jpg",
+    "static/media/BaChartEx.png": "/static/media/BaChartEx.539b20ac27f360d2ea8a.png",
+    "static/media/load-screen.png": "/static/media/load-screen.873fe9a936f6a7eb606d.png",
+    "static/media/Spotify_Logo_RGB_Green.png": "/static/media/Spotify_Logo_RGB_Green.0c4ae91bae23217d39c9.png",
+    "index.html": "/index.html",
+    "main.47d8683d.css.map": "/static/css/main.47d8683d.css.map",
+    "main.c5f50520.js.map": "/static/js/main.c5f50520.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47d8683d.css",
+    "static/js/main.c5f50520.js"
+  ]
+}
