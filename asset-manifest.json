@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7c55fc4f.css",
-    "main.js": "/static/js/main.36b67baf.js",
+    "main.js": "/static/js/main.367d1083.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
     "static/media/school-selfie.jpg": "/static/media/school-selfie.9371b50321002325415d.jpg",
     "static/media/News-And-Events.png": "/static/media/News-And-Events.9b81c76460d6fb4d11c8.png",
@@ -21,11 +21,11 @@
     "static/media/Spotify_Logo_RGB_Green.png": "/static/media/Spotify_Logo_RGB_Green.0c4ae91bae23217d39c9.png",
     "index.html": "/index.html",
     "main.7c55fc4f.css.map": "/static/css/main.7c55fc4f.css.map",
-    "main.36b67baf.js.map": "/static/js/main.36b67baf.js.map",
+    "main.367d1083.js.map": "/static/js/main.367d1083.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7c55fc4f.css",
-    "static/js/main.36b67baf.js"
+    "static/js/main.367d1083.js"
   ]
 }
