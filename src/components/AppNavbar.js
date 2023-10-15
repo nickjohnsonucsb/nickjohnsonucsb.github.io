@@ -19,7 +19,7 @@ const AppNavbar = () => {
                             <a className="nav-link app-nav-item" id="app-nav-resume" href="/#home-resume">Resume</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link app-nav-item" id="app-nav-portfolio" href="/#home-projects">Portfolio</a>
+                            <a className="nav-link app-nav-item" id="app-nav-portfolio" href="/#my-portfolio">Portfolio</a>
                         </li>
                     </ul>
                     <ul className="navbar-nav mr-auto">

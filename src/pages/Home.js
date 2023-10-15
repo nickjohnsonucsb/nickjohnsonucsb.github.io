@@ -33,7 +33,7 @@ const Home = () => {
     return (
         <body>
             <AppNavbar />
-
+            <div id="home-resume"></div>
             <div className="app-top-margin"></div>
 
             <div className="app-intro body" id="home-top">
@@ -241,7 +241,9 @@ const Home = () => {
                 </div>
 
             </div>
+            
 
+            <div id="my-portfolio"></div>
             <Portfolio/>
 
            

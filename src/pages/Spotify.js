@@ -51,7 +51,7 @@ class Spotify extends React.Component {
         return(
             <div>
                 <AppNavbar/>
-                <div className="app-top-margin"></div>
+                <div className="app-top-margin top-margin-spotify"></div>
                 {!this.state.token && (
 
                     
