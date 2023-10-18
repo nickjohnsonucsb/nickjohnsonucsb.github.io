@@ -69,10 +69,6 @@ const Portfolio = () => {
 
 
                     <a className="btn btn-primary mt-5" href="https://github.com/tiny-babies/VaxMan" target="_blank" rel="noopener noreferrer">View Repository</a>
-                    <div className="website-info">
-
-
-                    </div>
 
                 </div>
 
@@ -118,10 +114,6 @@ const Portfolio = () => {
 
 
                     <a className="btn btn-primary mt-5" href="https://github.com/tiny-babies/VaxMan" target="_blank" rel="noopener noreferrer">View Repository</a>
-                    <div className="website-info">
-
-
-                    </div>
 
                 </div>
 
@@ -165,10 +157,6 @@ const Portfolio = () => {
 
 
                     <a className="btn btn-primary mt-5" href="https://github.com/tiny-babies/university-course-search-app" target="_blank" rel="noopener noreferrer">View Repository</a>
-                    <div className="website-info">
-
-
-                    </div>
 
                 </div>
 
@@ -216,10 +204,6 @@ const Portfolio = () => {
 
 
                     <a className="btn btn-primary mt-5" href="https://github.com/tiny-babies/generative_image_extension" target="_blank" rel="noopener noreferrer">View Repository</a>
-                    <div className="website-info">
-
-
-                    </div>
 
                 </div>
 
@@ -265,10 +249,6 @@ const Portfolio = () => {
 
                     <a className="btn btn-success mt-5" href="https://cookbook-social.herokuapp.com/profile/9Es45fOkOBa5BO9oUSdZ5R7ZFvA2" target="_blank" rel="noopener noreferrer">Open Cookbook Social</a>
                     <a className="btn btn-primary mt-5 mx-5" href="https://github.com/tiny-babies/cookbook-social" target="_blank" rel="noopener noreferrer">View Repository</a>
-                    <div className="website-info">
-
-
-                    </div>
 
                 </div>
 
@@ -311,10 +291,7 @@ const Portfolio = () => {
                        
                     <a className="btn btn-success mt-5" href="/utune" target="_blank" rel="noopener noreferrer">Open UTune</a>
                     <a className="btn btn-primary mt-5 mx-5" href="https://github.com/tiny-babies/tiny-babies.github.io/tree/master" target="_blank" rel="noopener noreferrer">View Repository</a>
-                     <div className="website-info">
-                        
 
-                    </div> 
                     
                 </div>
                 

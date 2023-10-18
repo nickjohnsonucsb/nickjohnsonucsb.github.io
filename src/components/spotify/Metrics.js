@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import Button from "react-bootstrap/Button";
 import {ButtonGroup } from 'reactstrap';
 import '../../styles/Spotify.css'
@@ -29,8 +28,7 @@ class Metrics extends React.Component{
     }
 
     async getUserRecentlyPlayed(){
-        const response = await getRequest(this.props.token, "v1/me/player/recently-played?limit=50")
-        console.log(response.items);
+        const response = await getRequest(this.props.token, "v1/me/player/recently-played?limit=50");
         return response.items;
     }
 
@@ -45,13 +43,15 @@ class Metrics extends React.Component{
         this.state.topTracks.forEach((item) => {
             ids.push(item.artists[0].id);
         });
+        if(ids.length == 0) return [];
         const res = await getRequest(this.props.token, "v1/artists?ids=" + ids.join());
         return res.artists;
     }
 
     async getUserTopArtists(rSelected){
         const response = await getRequest(this.props.token, "v1/me/top/artists?time_range=" + rSelected + "&limit=10");
-        // console.log(response.items);
+        // console.log(response);
+
         return response.items;
     }
 
@@ -75,10 +75,13 @@ class Metrics extends React.Component{
         });
         let res = await getRequest(this.props.token, "v1/audio-features?ids=" + ids.join());
 
+
         res = res.audio_features;
+        if(res.length == 1) return [];
+
         // console.log(res.data)
         this.setState({ topTracksDataEach: res });
-       
+        
         let map = new Map([
             ['acousticness', 0],
             ['danceability', 0],
@@ -136,13 +139,11 @@ class Metrics extends React.Component{
         this.setState({
             rSelected,
             topArtists: [],
-            isLoaded: true
         });
         const res = await this.getUserTopArtists(rSelected);
     
         this.setState({
             topArtists: res, 
-            isLoading: false
         })
 
 
@@ -186,7 +187,7 @@ class Metrics extends React.Component{
                         <h2 className="home-h2 spotify-card-titles">Here are your Spotify stats...</h2>
 
                         {!this.state.artistList.length && (
-                            <h1 className="home-h1 spotify-card-titles">Loading...</h1>
+                            <h1 className="home-h1 spotify-card-titles">{this.state.isLoading ? 'Loading...' : 'No Data Found.'}</h1>
                         )}
                         {this.state.artistList.length !== 0 && (
                             <div>
@@ -223,7 +224,7 @@ class Metrics extends React.Component{
                            
    
                             {!this.state.topTracksData.length && (
-                            <h1 className="home-h1 spotify-card-titles">Loading...</h1>
+                            <h1 className="home-h1 spotify-card-titles">{this.state.isLoading ? 'Loading...' : 'No Data Found.'}</h1>
                             )}
                             {this.state.topTracksData.length !== 0 && (
                                 <div>
