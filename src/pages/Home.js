@@ -94,12 +94,12 @@ const Home = () => {
                             <p>
                                 <ul>
                                     <li>June - September 2023</li>
-                                    <li>Cloud computing with <b>AWS Cloud Services</b> to build serverless, scalable <b>REST APIs</b> using both relational (Snowflake - <b>SQL</b>) and non-relational (MongoDB - <b>NoSQL</b>) databases to construct complex queries for dynamic, large volume data retrieval.</li>
-                                    <li><b>Developed a cross-application integration.</b> between Info360 Insight and InfoWater Pro.
+                                    <li><b>Developed scalable REST APIs</b> using relational (<b>Snowflake - SQL</b>) and non-relational (<b>MongoDB - NoSQL</b>) databases, constructing complex queries for large volume, <b>time-series data</b> retrieval.</li>
+                                    <li><b>Architected a cross-application integration</b> between Info360 Insight and InfoWater Pro.
                                     </li>
-                                    <li>Solved a <b>database vulnerability</b> issue with implementing a Secrets Rotation Workflow with AWS.</li>
-                                    <li>Improved an essential endpoint’s performance with <b>99% latency reduction.</b></li>
-                                    <li>Architected serverless, event-driven microservices by developing <b>AWS Lambdas</b> with <b>Node.js and Typescript and with Jest Unit testing.</b><br />
+                                    <li><b>Solved a database vulnerability</b> issue with implementing a Secrets Rotation Workflow on four different SaaS applications.</li>
+                                    <li><b>Improved the performance</b> of multiple APIs with <b>99% latency reduction.</b></li>
+                                    <li>Cloud computing with <b>AWS Cloud Services</b> using <b>Node.js, Typescript,</b> and <b>Jest Unit testing</b>  for back-end development, and <b>React, WebPack</b> for front-end.<br />
                                         <button className="btn btn-dark more-button" type="button" onClick={() => setToggleMore1(!toggleMore1)}>{toggleMore1 ? "Hide" : "More"}</button>
                                         </li>
                                 </ul>
@@ -116,22 +116,31 @@ const Home = () => {
                                 Experimental feature requested by a client.
                             </li>
                             <li>
-                                I edited and scaled some existing APIs, as well as <b>created new APIs for dynamic water usage retrieval.</b>
+                                <b>Created and scaled APIs</b> to support both virtual and physical sensor data for dynamic water usage retrieval. 
                             </li>
                             <li>
-                                <b>SaaS backend development</b> with Node.js, Typescript, MongoDB, and Snowflake SQL.
+                                <b>SaaS back-end development</b> with Node.js, Typescript, MongoDB, and Snowflake SQL.
+                            </li>
+                            <li>
+                                Utilized the following AWS services: Lambda, API Gateway, Step Functions, Cloud Formation, CloudWatch Logs.
+                            </li>
+                            <li>
+                                Architecture follows serverless, event-driven microservices. 
                             </li>
                         </ul>
                         <h5><b>AWS Secrets Rotation Workflow Implementation</b></h5>
                         <ul>
                             <li>
-                                <b>Solved a database vulnerability</b> in my team's SaaS backend repositories.
+                                <b>Collaborated</b> across multiple product teams to <b>solve a database vulnerability</b> issue.
                             </li>
                             <li>
-                                Used AWS Secrets Manager and an AWS Lambda function to rotate database credentials every month.
+                                <b>Implemented across four different Autodesk SaaS applications:</b> saas_custom_analytics, saas_mass_balance, saas_dap, saas_incident_management. 
                             </li>
                             <li>
-                                <b>Refactored</b> how each repository accesses the databases, and scaled the SaaS service for secrets rotation to include those repositories.
+                                <b>Migrated services</b> for storing environment variables from AWS Systems Manager to AWS Secrets Manager in order to support environment variable secret rotation.
+                            </li>
+                            <li>
+                                <b>Refactored</b> how each repository accesses the databases, and scaled the AWS Lambda and SaaS application for secrets rotation to rotate the database secrets of those repositories every 30 days.  
                             </li>
                             <li>
                                 Using <b>infrastructure as code</b>, added a cache layer for speed-up of fetching database access credentials, <b>reducing latency by 99%</b> from 500ms to 4ms.
