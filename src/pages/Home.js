@@ -1,291 +1,491 @@
-import React, { useState} from 'react';
-import Zoom from 'react-medium-image-zoom'
-import '../styles/App.css';
-import AppNavbar from '../components/AppNavbar';
+import React, { useState, useMemo } from "react";
+import Zoom from "react-medium-image-zoom";
+import "../styles/App.css";
+import AppNavbar from "../components/AppNavbar";
+import TypeWriter from "../components/home/TypeWriter.js";
+import ExperienceArticle from "../components/home/ExperienceArticle.js";
 
-import SchoolSelfieImg from '../styles/school-selfie.jpg'
-import SecretsRotationImg from '../styles/SecretsRotationWorkflow.png'
-import Info360Img from '../styles/Info360Tool.png'
-import DLSImg from '../styles/Data-Lit-Series.png'
-import DTEHeadImg from '../styles/Data-Tool-Explorer-Head.png'
-import DTETable from '../styles/Data-Tool-Explorer-Table.png'
-import NewsEventsImg from '../styles/News-And-Events.png'
-import Portfolio from '../components/PortfolioGame';
+import SchoolSelfieImg from "../styles/selfie.jpg";
+import SecretsRotationImg from "../styles/SecretsRotationWorkflow.png";
+import Info360Img from "../styles/Info360Tool.png";
+import DLSImg from "../styles/Data-Lit-Series.png";
+import DTEHeadImg from "../styles/Data-Tool-Explorer-Head.png";
+import DTETable from "../styles/Data-Tool-Explorer-Table.png";
+import NewsEventsImg from "../styles/News-And-Events.png";
+import Portfolio from "../components/PortfolioGame";
+import GoogleDocIcon from "../styles/GoogleDocIcon.png";
+import briefcase from "../styles/briefcase.png";
+import tatemLogo from "../styles/tatemLogo.png";
+import autodeskLogo from "../styles/autodeskLogo.png";
+import ucsbLogo from "../styles/ucsbLogo.png";
+import folderIcon from "../styles/folderIcon.png";
+import mailIcon from "../styles/mailIcon.png";
+import ucsbSchoolLogo from "../styles/ucsbSchoolLogo.png";
 
 import "../../node_modules/bootstrap/dist/js/bootstrap.min.js";
-import 'react-medium-image-zoom/dist/styles.css'
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "react-medium-image-zoom/dist/styles.css";
 
+const phrases = [
+  { text: "Nick", speed: 100, delay: 8000 },
+  { text: "a Software Engineer", speed: 75 },
+  { text: "a Full Stack Developer", speed: 50 },
+  { text: "a React Developer", speed: 75 },
+];
 
+const JOBS = [
+  {
+    company: "Tatem.com",
+    date: "January 2024, Current Position",
+    jobTitle: "Software Engineer",
 
+    summary: (
+      <>
+        Founding team and core engineer for a local-first email client with
+        thousands of wait-listed users. I <b>develop core UI/UX features</b>{" "}
+        using{" "}
+        <b>
+          Typescript, React.js, Next.js, MobX, Tailwind, Node, and Supabase,
+        </b>{" "}
+        prompting thousands of new sign-ups and praise from{" "}
+        <a
+          href="https://francescod.medium.com/10-hot-productivity-apps-for-2024-e45e68f2ee22"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Medium
+        </a>{" "}
+        and{" "}
+        <a
+          href="https://godly.website/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Godly
+        </a>
+        .
+      </>
+    ),
+    description: (
+      <ul>
+        <li>
+          Implemented a local <b>cache database</b> with <b>IndexDB</b> that
+          reduces loading time by over 90%.
+        </li>
+        <li>
+          Shipped the <b>undo/redo action feature</b> by designing a{" "}
+          <b>command pattern</b>
+          with a transaction management queue and log that also manages
+          error-handling and validation for each request, and decouples the
+          client’s UI from the backend.
+        </li>
+        <li>
+          Designed a <b>Real-Time, Online Auto-Save feature</b>, and designed a
+          prioritized mutex lock that manages concurrency and prioritizes the
+          last request in a sequence for minimizing sent requests and bandwidth
+          usage.
+        </li>
+        <li>
+          Used React-PDF to build our first ever{" "}
+          <b>custom attachment and PDF viewer</b>. I built several pdf
+          functionalities from scratch including, the Search Text feature to
+          find specified pieces of text from the parsed PDF data.
+        </li>
+      </ul>
+    ),
+    logo: tatemLogo,
+  },
+  {
+    company: "Autodesk",
+    date: "June 2023 - September 2023",
+    jobTitle: "Full Stack Developer Intern",
 
+    summary: (
+      <>
+        Designed backend architecture of{" "}
+        <b>RESTful APIs and SaaS microservices</b> using cloud computing with{" "}
+        <b>
+          AWS Cloud Services, Serverless Framework, Typescript, React, Node,
+          Webpack, Jest, Snowflake (SQL) and MongoDB (NoSQL)
+        </b>
+        .
+      </>
+    ),
+    description: (
+      <ul>
+        <li>
+          Developed scalable REST APIs using relational (Snowflake - SQL) and
+          non-relational (MongoDB - NoSQL) databases, constructing complex
+          queries for{" "}
+          <b>large volume, time-series data processing and retrieval</b>.
+        </li>
+        <li>
+          <span className="d-flex flex-row justify-content-between  align-items-center">
+            <span>
+              Architected a <b>cross-app integration</b>c between Info360
+              Insight and InfoWater Pro by scaling APIs to support both
+              'virtual' and 'physical' sensor data for a dynamic analytics
+              feature.
+            </span>
+            <Zoom>
+              <img
+                src={Info360Img}
+                alt="img"
+                className="rounded-circle overflow-hidden ratio ratio-1x1 zoomable experience-desc-img"
+              />
+            </Zoom>
+          </span>
+        </li>
+        <li>
+          <span className="d-flex flex-row justify-content-between align-items-center">
+            <span>
+              {" "}
+              Solved a <b>critical database vulnerability</b> by migrating
+              multiple backend microservice applications to a new,
+              audit-compliant workflow with automated database credentials
+              rotation. Also implemented a new cache layer inside server memory
+              that improved database access time by 99%.
+            </span>{" "}
+            <Zoom>
+              <img
+                src={SecretsRotationImg}
+                alt="img"
+                className="rounded-circle overflow-hidden ratio ratio-1x1 zoomable experience-desc-img"
+              />
+            </Zoom>
+          </span>
+        </li>
+        <li>
+          <a
+            href="https://docs.google.com/presentation/d/1s9g_U7cg106SX7-eNdxrJ8ZT99eC2Sgn/edit?usp=sharing&ouid=118381956792979436680&rtpof=true&sd=true"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Made an intern presentation for my accomplishments.
+          </a>
+        </li>
+      </ul>
+    ),
+    logo: autodeskLogo,
+  },
+  {
+    company: "Research Data Department, UCSB",
+    date: "January 2023 - June 2023",
+    jobTitle: "Frontend Software Engineer",
+
+    summary: (
+      <>
+        Front-End engineer for{" "}
+        <a
+          href="http://rcd.ucsb.edu/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          rcd.ucsb.edu
+        </a>
+        , designing and developing the official website for centralizing UCSB
+        research data.
+      </>
+    ),
+    description: (
+      <ul>
+        <li>
+          Designed responsive web page templates under a university theme with
+          <b>Twig, PHP, Javascript, Bootstrap CSS, and HTML</b>, and resolved
+          issues with hosting, security, and performance with Pantheon.
+        </li>
+        <li>
+          <b>Scripted a CI pipeline with github actions</b> to automate syncing
+          the git repositories in GitHub and Pantheon.
+        </li>
+        <li>
+          Designed each new page to be scalable with an interface for admins to
+          easily input new multi-media content into each page.
+          <span className="d-flex flex-row justify-content-between  align-items-center mt-3 experience-img-list">
+            <Zoom>
+              <img
+                src={DLSImg}
+                alt="img"
+                className="rounded-circle overflow-hidden ratio ratio-1x1 zoomable experience-desc-img-cover"
+              />
+            </Zoom>
+            <Zoom>
+              <img
+                src={DTEHeadImg}
+                alt="img"
+                className="rounded-circle overflow-hidden ratio ratio-1x1 zoomable experience-desc-img-cover"
+              />
+            </Zoom>
+            <Zoom>
+              <img
+                src={DTETable}
+                alt="img"
+                className="rounded-circle overflow-hidden ratio ratio-1x1 zoomable experience-desc-img-cover"
+              />
+            </Zoom>
+            <Zoom>
+              <img
+                src={NewsEventsImg}
+                alt="img"
+                className="rounded-circle overflow-hidden ratio ratio-1x1 zoomable experience-desc-img-cover"
+              />
+            </Zoom>
+          </span>
+        </li>
+      </ul>
+    ),
+    logo: ucsbLogo,
+  },
+];
 
 const Home = () => {
+  const [isVidLoaded, setIsVidLoaded] = useState(false);
+  return (
+    <body>
+      <AppNavbar />
 
-    const[toggleMore1, setToggleMore1] = useState(false);
-    const[toggleMore2, setToggleMore2] = useState(false);
-
-
-   
-   
-
-
-
-    return (
-        <body>
-            <AppNavbar />
-            <div id="home-resume"></div>
-            <div className="app-top-margin"></div>
-
-            <div className="app-intro body" id="home-top">
-
-                <div className="website-info" id="website-head-text">
-                    <div className="name-title">
-                        <div id='header-text'>
-                            <h1>Software Engineer</h1>
-                            <h2>Nicolas Johnson</h2>
-                            <p>2023 Alumni of University of California, Santa Barbara <br/>Computer Science</p>
-
-                            <p id="email">Contact: NickJohnsonUCSB@gmail.com</p>
-                        </div>
-                        
-                       
-                    </div>
-                    <img id="app-intro-gif" src="https://i.pinimg.com/originals/f5/8f/e8/f58fe8e19a7e25ddf0c459a3599261d6.gif"></img>
+      <div className="position-relative video-background overflow-hidden vh100">
+        <video
+          onCanPlayThrough={() => {
+            setIsVidLoaded(true);
+          }}
+          onWaiting={() => setIsVidLoaded(false)}
+          onPlay={() => {
+            setIsVidLoaded(true);
+          }}
+          autoPlay
+          playsInline
+          muted
+          loop
+          className={
+            "position-fixed min-h-100 min-w-100 " +
+            (isVidLoaded ? "opacity-1" : "opacity-0")
+          }
+          poster="https://res.cloudinary.com/dukfn2auq/image/upload/v1724344680/zpeuyljbohnycvuryvhr.webp"
+          style={{
+            minWidth: "100%",
+            zIndex: 0,
+            background: "no-repeat",
+            backgroundSize: "cover",
+            transition: "opacity 2.5s cubic-bezier(0.39, 0.58, 0.57, 1)",
+          }}
+        >
+          <source src="https://res.cloudinary.com/dukfn2auq/video/upload/v1724442280/mkamvvkkwek8qnqxq9cc.mp4" />
+          <source src="https://res.cloudinary.com/dukfn2auq/video/upload/v1724343619/ygpgde2pqjtmqhcdohno.webm" />
+        </video>
+        <div className="position-absolute w-100 h-100 overlay-video" />
+        <div
+          className="d-flex flex-column position-relative playfair-text text-white h-100 mx-auto content-width justify-content-center align-items-center "
+          style={{ zIndex: 2, paddingTop: "70px", gap: "100px" }}
+        >
+          <div className="text-center">
+            <h1 className="title-lg">Software Engineer</h1>
+            <h3 className="title-sm"> @ Tatem.com </h3>
+            <h2 className="title-md">Nicolas Johnson</h2>
+            <p className="subtitle-lg">
+              2023 Computer Science Alumni of UC, Santa Barbara <br />
+            </p>
+          </div>
+          <div className="d-flex align-items-center justify-content-center bento-wrapper">
+            <div
+              className="d-grid bento-box"
+              style={{
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gridTemplateRows: "repeat(2, 1fr)",
+              }}
+            >
+              <a
+                className="d-flex flex-column bento-cup position-relative peer-overlay"
+                style={{
+                  gridColumn: "span 1",
+                  gridRow: "span 2",
+                }}
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://docs.google.com/document/d/1RWd7uCKfkDe67xbidVGh_AKg8-NgWV1GUOjtVptbjOI/edit?usp=sharing"
+              >
+                <div className="position-absolute hover-overlay w-100 h-100 start-0 top-0" />
+                <div id="resume-card">
+                  <div className="go-up-big position-relative">
+                    <img
+                      src={GoogleDocIcon}
+                      style={{ width: "65px" }}
+                      className="mb-1"
+                    />
+                    <p className="subtitle-lg bento-text">Resume</p>
+                  </div>
                 </div>
-                <div className="button-links">
-                    <ul id="contact-list">
-                        <li title='LinikedIn'>
-                            <a className="btn btn-lg btn-info" href="https://www.linkedin.com/in/njohnsonucsb" target="_blank" rel="noopener noreferrer">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-linkedin contact-icon" viewBox="0 0 16 16">
-                                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
-                                </svg>
-                            </a>
-                        </li>
-
-                        <li title='GitHub'>
-                            <a href="https://github.com/tiny-babies" target="_blank" className="btn btn-lg btn-info" rel="noopener noreferrer">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-github contact-icon" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://docs.google.com/document/d/1RWd7uCKfkDe67xbidVGh_AKg8-NgWV1GUOjtVptbjOI/edit?usp=sharing" target="_blank" className="btn btn-lg btn-info" rel="noopener noreferrer">
-                                <p className="contact-icon contact-icon-text">Resume</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://drive.google.com/file/d/1OJ4vu-6smOw_TnlQL3q5UnoCKjnrl3wT/view?usp=sharing" target="_blank" className="btn btn-lg btn-info" rel="noopener noreferrer">
-                                <p className="contact-icon contact-icon-text">Transcript</p>
-                            </a>
-                        </li>
-
-
-                    </ul>
-
+              </a>
+              <a
+                className="d-flex flex-row align-items-center bento-cup justify-content-center gap-4 position-relative peer-overlay"
+                style={{
+                  gridColumn: "span 3",
+                  gridRow: "span 1",
+                }}
+                href="/#my-experience"
+              >
+                <div className="position-absolute hover-overlay w-100 h-100" />
+                <div className="go-up d-flex flex-row align-items-center justify-content-center gap-3 position-relative">
+                  <img src={briefcase} id="briefcase-img" />
+                  <p className="subtitle-lg bento-text">Work Experience</p>
                 </div>
-
-                <div className="app-intro-info">
-                    <h1>Work Experience</h1>
-                    <div className="app-intro-row">
-                        <img src="https://i.pinimg.com/originals/c4/cb/e0/c4cbe0d6552d2fb6c1483f6bff42225d.gif"></img>
-                        <div>
-                            <h3 id="autodesk-title" className="work-experience-titles">Software Engineer Intern @ Autodesk</h3>
-                            <p>
-                                <ul>
-                                    <li>June - September 2023</li>
-                                    <li><b>Developed scalable REST APIs</b> using relational (<b>Snowflake - SQL</b>) and non-relational (<b>MongoDB - NoSQL</b>) databases, constructing complex queries for large volume, <b>time-series data</b> retrieval.</li>
-                                    <li><b>Architected a cross-application integration</b> between Info360 Insight and InfoWater Pro.
-                                    </li>
-                                    <li><b>Solved a database vulnerability</b> issue with implementing a Secrets Rotation Workflow on four different SaaS applications.</li>
-                                    <li><b>Improved the performance</b> of multiple APIs with <b>99% latency reduction.</b></li>
-                                    <li>Cloud computing with <b>AWS Cloud Services</b> using <b>Node.js, Typescript,</b> and <b>Jest Unit testing</b>  for back-end development, and <b>React, WebPack</b> for front-end.<br />
-                                        <button className="btn btn-dark more-button" type="button" onClick={() => setToggleMore1(!toggleMore1)}>{toggleMore1 ? "Hide" : "More"}</button>
-                                        </li>
-                                </ul>
-                            </p>
-                            
-                        </div>
-
-                    </div>
- 
-                    <div className={`more-info ${toggleMore1 ? 'more-info-show' : ''}`}>
-                        <h5><b>Cross Application Integration between InfoWater Pro and Info360 Insight.</b></h5>
-                        <ul>
-                            <li>
-                                Experimental feature requested by a client.
-                            </li>
-                            <li>
-                                <b>Created and scaled APIs</b> to support both virtual and physical sensor data for dynamic water usage retrieval. 
-                            </li>
-                            <li>
-                                <b>SaaS back-end development</b> with Node.js, Typescript, MongoDB, and Snowflake SQL.
-                            </li>
-                            <li>
-                                Utilized the following AWS services: Lambda, API Gateway, Step Functions, Cloud Formation, CloudWatch Logs.
-                            </li>
-                            <li>
-                                Architecture follows serverless, event-driven microservices. 
-                            </li>
-                        </ul>
-                        <h5><b>AWS Secrets Rotation Workflow Implementation</b></h5>
-                        <ul>
-                            <li>
-                                <b>Collaborated</b> across multiple product teams to <b>solve a database vulnerability</b> issue.
-                            </li>
-                            <li>
-                                <b>Implemented across four different Autodesk SaaS applications:</b> saas_custom_analytics, saas_mass_balance, saas_dap, saas_incident_management. 
-                            </li>
-                            <li>
-                                <b>Migrated services</b> for storing environment variables from AWS Systems Manager to AWS Secrets Manager in order to support environment variable secret rotation.
-                            </li>
-                            <li>
-                                <b>Refactored</b> how each repository accesses the databases, and scaled the AWS Lambda and SaaS application for secrets rotation to rotate the database secrets of those repositories every 30 days.  
-                            </li>
-                            <li>
-                                Using <b>infrastructure as code</b>, added a cache layer for speed-up of fetching database access credentials, <b>reducing latency by 99%</b> from 500ms to 4ms.
-                            </li>
-                        </ul>
-                        <h5><a href="https://docs.google.com/presentation/d/1s9g_U7cg106SX7-eNdxrJ8ZT99eC2Sgn/edit?usp=sharing&ouid=118381956792979436680&rtpof=true&sd=true" rel="noopener noreferrer" target="_blank" >View my intern presentation.</a></h5>
-                        <div className="website-info">
-                            <Zoom style={{ width: "40%", }}>
-                                <img src={Info360Img} alt="img" style={{ width: "450px", }}/>
-                            </Zoom>
-                            <Zoom style={{ width: "40%", }}>
-                                <img src={SecretsRotationImg} alt="img" style={{ width: "400px", }}/>
-                            </Zoom>
-                            
-                            
-                        </div>
-                       
-                    </div>
-                    
-
-                    <div className="app-intro-row">
-                        <img src="https://i.pinimg.com/originals/9f/92/6c/9f926c8c220127d81c8ba6897aa8d5db.gif"></img>
-                        <div>
-                            <h4 id="frontend-title" className="work-experience-titles">Frontend Software Engineer @ Data Research Department, UCSB</h4>
-                            <p>
-                                  <ul>
-                                <li>
-                                    January - June 2023
-                                </li>
-                                <li>Part-Time <b>Lead Frontend Engineer </b> of a small multidisciplinary team that is funded to create an official university website for centralizing UCSB Data Research.</li>
-                                    <li>Designed and developed <b>responsive and scalable web page templates</b>, ensuring consistent university web theme and user experience across all devices using <b>PHP, Javascript, CSS, and HTML.</b>
-                                    </li>
-                                    <li>
-                                        <b>Scripted a CI pipeline</b> to integrate hosting platforms with automated repository synchronization between GitHub and Pantheon.<br />
-                                        <button className="btn btn-dark more-button" type="button" onClick={() => setToggleMore2(!toggleMore2)}>{toggleMore2 ? "Hide" : "More"}</button>
-                                    </li>
-        
-                                    
-                                    
-                            </ul>
-                            </p>
-                          
-                        </div>
-                    </div>
-                    <div className={`more-info ${toggleMore2 ? 'more-info-show' : ''}`}>
-                        <b>The Data Research Deparment is a new department funded by the University of California, Santa Barbara with an iniative to centralize all the data research resources on campus.</b>
-                        <h5 className="mt-2"><b>Lead Frontend Engineer</b></h5>
-                        <ul>
-                            <li>
-                                Team of five multidisciplinary members with two other developers.
-                            </li>
-                            <li>
-                                Orchestrated a content expansion initiative that increased the website’s size by over 400% incorporating new pages and multimedia content.
-                            </li>
-                            <li>
-                                Actively monitored and resolved issues related to hosting, performance, security, and scalability with Pantheon.
-
-                            </li>
-                            <li>
-                                The only student and undergrad hired onto the team.
-                            </li>
-                        </ul>
-                        <h5>Image Portfolio of the web pages I created:</h5>
-                        <div className="website-info mb-5">
-                            <Zoom style={{ width: "20%", }}>
-                                <img src={DLSImg} alt="img" style={{ height: "150px", }} />
-                            </Zoom>
-                            <Zoom style={{ width: "20%", }}>
-                                <img src={DTEHeadImg} alt="img" style={{ height: "150px", }} />
-                            </Zoom>
-                            <Zoom style={{ width: "20%", }}>
-                                <img src={DTETable} alt="img" style={{ height: "150px", }} />
-                            </Zoom>
-                            <Zoom style={{ width: "20%", }}>
-                                <img src={NewsEventsImg} alt="img" style={{ height: "150px", }} />
-                            </Zoom>
-
-
-                        </div>
-                    </div>
-
-                    
-
-                    <h1 className="mt-4">Education</h1>
-                    <div className="app-intro-row mb-5" id="education-row">
-                        <img src={SchoolSelfieImg} id="school-selfie" ></img>
-                        <div id="education">
-                            <h4>University of California, Santa Barbara</h4>
-                            <p> <b>2023 Computer Science (B.S) Alumni with Engineering High Honors </b><br />
-                                <b>GPA: 3.93 / 4.00</b> <br />
-                                <b>Undergraduate Research on Machine Learning Algorithms</b> <br />
-                                <ul>
-                                    <li> Early Research Scholar Program 2021</li>
-                                    <li>Mentor: Professor Eric Vigoda</li>
-                                    <li><a href="https://drive.google.com/file/d/1DC-eRaMWz5kIyPOvXymQUynyhKVkneeZ/view?usp=sharing" target="_blank" rel="noopener noreferrer">Project Proposal</a></li>
-                                </ul>
-                                
-                                <b>Advanced Computer Vision Artificial Intelligence Research</b>
-                                <ul>
-                                    <li>Early Graduate Course Enrollment 2023</li>
-                                    <li><a href="https://github.com/tiny-babies/generative_image_extension" target="_blank" rel="noopener noreferrer">Final Project</a> - Generative Machine Learning Model for Image Extention</li>
-                                </ul>
-                            </p>
-                        </div>
-                    </div>
-
-
+              </a>
+              <a
+                className="d-flex flex-row align-items-center bento-cup justify-content-center  gap-2 position-relative peer-overlay position-relative"
+                style={{
+                  gridColumn: "span 2",
+                  gridRow: "span 1",
+                }}
+                href="/#my-portfolio"
+              >
+                <div className="position-absolute hover-overlay w-100 h-100" />
+                <div className="go-up d-flex flex-row align-items-center justify-content-center gap-2 position-relative">
+                  <img src={folderIcon} style={{ width: "60px" }} />
+                  <p className="subtitle-lg bento-text">Portfolio</p>
                 </div>
-
+              </a>
+              <a
+                className="d-flex flex-row align-items-center bento-cup justify-content-center  gap-2 position-relative peer-overlay"
+                style={{
+                  gridColumn: "span 1",
+                  gridRow: "span 1",
+                }}
+                href="/#my-contact"
+              >
+                <div className="position-absolute hover-overlay w-100 h-100" />
+                <div className="go-up d-flex flex-row align-items-center justify-content-center gap-2 position-relative">
+                  <img src={mailIcon} style={{ width: "50px" }} />
+                  <p className="subtitle-lg bento-text">Contact</p>
+                </div>
+              </a>
             </div>
-            
+          </div>
+        </div>
+      </div>
+      <div
+        className="position-relative"
+        style={{ zIndex: 1, background: "white" }}
+      >
+        <div className="playfair-text pt-4 mx-auto d-flex flex-column gap-4 content-width">
+          <section className="w-100">
+            <div className="d-flex flex-row lh-2">
+              <div id="about">
+                <h2 className="title-md">
+                  Hello, I'm <TypeWriter phrases={phrases} />
+                </h2>
+                <p className="subtitle-md mb-0">
+                  Junior Software Engineer on the founding team of Tatem.
+                </p>
+                <p className="text-p">
+                  Currently very interested in and active in learning data
+                  processing, developing big data pipelines, and machine
+                  learning.
+                </p>
+              </div>
 
-            <div id="my-portfolio"></div>
-            <Portfolio/>
+              <div className="rounded-circle overflow-hidden img-cont-lg">
+                <img
+                  src={SchoolSelfieImg}
+                  className="w-100 h-100"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+            </div>
+          </section>
 
-           
-
-            <div className="container">
-                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                    <div class="col-md-4 d-flex align-items-center">
-                        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                            <svg class="bi" width="30" height="24"></svg>
+          <section id="my-experience">
+            <div className="d-flex flex-column gap-3">
+              <h3 className="title-sm mb-1">Work Experience</h3>
+              {JOBS.map((job) => {
+                return <ExperienceArticle {...job} />;
+              })}
+            </div>
+          </section>
+          <section>
+            <div className="d-flex flex-column gap-2 pt-2">
+              <h3 className="title-sm mb-1">Education</h3>
+              <ExperienceArticle
+                symbol={ucsbSchoolLogo}
+                jobTitle={
+                  <>
+                    <div className="extra-space" />
+                    <span className="number">2023</span> Computer Science (B.S)
+                    Alumni with Engineering High Honors <br /> Major GPA:{" "}
+                    <span className="number">4.0 / 4.0</span>
+                  </>
+                }
+                description={
+                  <>
+                    {" "}
+                    <b>
+                      Undergraduate Research on Machine Learning Algorithms
+                    </b>{" "}
+                    <br />
+                    <ul>
+                      <li> Early Research Scholar Program 2021</li>
+                      <li>Mentor: Professor Eric Vigoda</li>
+                      <li>
+                        <a
+                          href="https://drive.google.com/file/d/1DC-eRaMWz5kIyPOvXymQUynyhKVkneeZ/view?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Project Proposal
                         </a>
-                        <span class="mb-3 mb-md-0 text-muted">Nicolas Johnson</span>
-                    </div>
-
-                    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                        <li class="ms-3"> <a className="btn btn-lg btn-info" href="https://www.linkedin.com/in/njohnsonucsb" target="_blank" rel="noopener noreferrer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-linkedin contact-icon" viewBox="0 0 16 16">
-                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
-                            </svg>
-                        </a></li>
-                        <li class="ms-3"><a href="https://github.com/tiny-babies" target="_blank" className="btn btn-lg btn-info" rel="noopener noreferrer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-github contact-icon" viewBox="0 0 16 16">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                            </svg>
-                        </a></li>
-                        <li class="ms-3"></li>
+                      </li>
                     </ul>
-                </footer>
+                    <b>
+                      Advanced Computer Vision Artificial Intelligence Research
+                    </b>
+                    <ul>
+                      <li>Early Graduate Course Enrollment 2023</li>
+                      <li>
+                        <a
+                          href="https://github.com/tiny-babies/generative_image_extension"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Final Project
+                        </a>{" "}
+                        - Generative Machine Learning Model for Image Extention
+                      </li>
+                    </ul>
+                  </>
+                }
+                company={"University of California, Santa Barbara"}
+              />
             </div>
-
-
-        </body>
-    );
-}
+          </section>
+        </div>
+        <div
+          className="content-width mx-auto pb-4 text-center playfair-text d-flex flex-column justify-content-center contact"
+          id="my-contact"
+        >
+          <h2 className="title-sm m-0">Let's Connect!</h2>
+          <p className="text-p pt-2">
+            I'm very active on LinkedIn and would love to connect with you
+            there. Or feel free to send me an email if that’s more convenient
+            for you. I look forward to connecting!
+          </p>
+          <p className="subtitle-small mb-1">
+            <b>LinkedIn:</b>{" "}
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://www.linkedin.com/in/njohnsonucsb"
+            >
+              https://www.linkedin.com/in/njohnsonucsb
+            </a>
+          </p>
+          <p className="subtitle-small ">
+            <b>Email:</b> nickjamesjohnson@icloud.com
+          </p>
+        </div>
+        <div id="my-portfolio" className="pt-4 mt-4"></div>
+        <Portfolio />
+      </div>
+    </body>
+  );
+};
 
 export default Home;

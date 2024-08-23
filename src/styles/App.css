@@ -1,11 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 @import url("https://fonts.googleapis.com/css?family=Orbitron");
 @import url("https://fonts.googleapis.com/css?family=Pixelify+Sans");
 
+.playfair-text {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
 
+.number {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
 
-
-
+.video-background {
+  z-index: 0;
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+  background: url('https://res.cloudinary.com/dukfn2auq/image/upload/v1724344680/zpeuyljbohnycvuryvhr.webp') no-repeat center fixed;
+  background-size: cover;
+  width: 100%;
+  max-height: 1080px;
+  min-height: 650px;
+}
 
 
 .top-margin-spotify {
@@ -13,53 +31,382 @@
 }
 
 .App-nav {
-
-  box-shadow: inset 0 0 20rem rgba(7, 7, 7, 1);
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.8);
+  font-family: "Playfair Display", serif;
   font-weight: bold;
   font-size: 1.1em !important;
-  line-height: .6;
   /* must fix padding (all padding)*/
   padding: .2em 5em .2em 5em !important;
 
 }
 
-.ml-auto {
-  display: flow-root;
-  margin-left: auto;
+.content-width {
+  max-width: 800px;
+}
 
+
+h1.title-lg {
+  font-size: 50px;
+  font-weight: 500;
+}
+
+h3.title-sm {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.title-md,
+h2.title-md {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+p.subtitle-lg {
+  font-size: 25px;
+  font-weight: 500;
+  margin: 0;
+}
+
+p.subtitle-md {
+  font-size: 20px;
+}
+
+p.subtitle-small {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.text-p {
+  font-size: 15px;
+}
+
+.text-muted {
+  color: lightgray;
+}
+
+.experience-article {
+  padding-left: 20px;
+}
+
+.experience-hover:hover {
+  cursor: pointer;
+}
+
+
+.view-more-icon {
+  opacity: 0;
+  transform: translate(0.25rem, 0) rotate(0) scaleX(1) scaleY(1);
+  transition: transform 0.3s ease, opacity 0.3s ease-in;
+  --tw-rotate: 90deg;
+}
+
+.view-more-icon.clicked {
+  transform: translate(0.25rem, 0) rotate(90deg) scaleX(1) scaleY(1);
+}
+
+.experience:hover .view-more-icon {
+  opacity: 1;
+}
+
+.experience-article p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.contact {
+  height: 400px;
+}
+
+.img-cont-lg {
+  width: 200px;
+  height: 200px;
+}
+
+#about {
+  max-width: 600px;
+}
+
+.view-more-button {
+  display: none !important;
+}
+
+.experience-right {
+  justify-content: end;
+  align-items: end;
+}
+
+.experience-logo {
+  width: 42px;
+  height: 42px;
+}
+
+.experience-desc-img {
+  width: 150px !important;
+}
+
+.experience-desc-img-cover {
+  width: 150px !important;
+  height: 120px !important;
+  object-fit: cover !important;
+}
+
+.experience-symbol {
+  height: 42px;
+}
+
+#briefcase-img {
+  width: 55px;
+}
+
+.overlay-video {
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+
+@media screen and (max-width: 800px) {
+
+  .overlay-video {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  .video-background {
+    background: url('https://res.cloudinary.com/dukfn2auq/image/upload/v1724344680/zpeuyljbohnycvuryvhr.webp') no-repeat center;
+    min-height: 575px;
+    height: 80vh;
+  }
+
+  #briefcase-img {
+    width: 50px !important;
+  }
+
+  .content-width {
+    max-width: 100%;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  h1.title-lg {
+    font-size: 30px;
+  }
+
+  h3.title-sm {
+    font-size: 24px;
+  }
+
+  .title-md,
+  h2.title-md {
+    font-size: 28px;
+  }
+
+  p.subtitle-md {
+    font-size: 16px;
+  }
+
+  p.subtitle-lg {
+    font-size: 20px;
+  }
+
+  /*  */
+
+  p.subtitle-small {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .text-p {
+    font-size: 12px;
+  }
+
+  .text-height-sm {
+    line-height: 16px;
+  }
+
+  .img-cont-lg {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+  }
+
+  #about {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+
+  #about h2 {
+    font-size: 24px;
+    height: 68px;
+  }
+
+  .view-more-icon {
+    display: none;
+  }
+
+  .view-more-button {
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    display: block !important;
+    font-weight: bold !important;
+    margin-top: 5px;
+  }
+
+  .experience-right {
+    align-items: center !important;
+  }
+
+  .experience-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .experience .subtitle-lg {
+    line-height: 24px;
+  }
+
+  .experience-desc-img {
+    width: 70px !important;
+  }
+
+  .experience-desc-img-cover {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: cover !important;
+  }
+
+  .experience-img-list {
+    flex-wrap: wrap;
+  }
+
+  .experience-symbol {
+    margin-bottom: auto;
+    height: auto !important;
+    width: 70px !important;
+  }
+
+  #my-contact .subtitle-small {
+    font-size: 12px;
+  }
+
+  .contact {
+    height: 300px !important;
+  }
+
+  .extra-space {
+    margin-top: 10px;
+  }
+
+}
+
+#resume-card {
+  margin-top: auto;
+  padding-bottom: 28px;
+}
+
+#resume-card img {
+  margin-left: -6px;
+}
+
+.bento-wrapper {
+  padding: 0 20px;
+}
+
+.bento-box {
+  height: 280px;
+  width: 650px;
+  gap: 8px;
+  padding: 8px;
+  color: black;
 }
 
 
 
+.bento-cup {
+  text-decoration: none;
+  color: black;
+  padding: 20px;
+  border-radius: 8px;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+}
 
+.bento-cup:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.bento-cup:hover .go-up-big {
+  transform: translateY(-20px)
+}
+
+.bento-cup:hover .go-up {
+  transform: translateY(-10px)
+}
+
+.go-up-big,
+.go-up {
+  transition: transform 0.3s ease;
+}
+
+.hover-overlay {
+  border-radius: 8px;
+  opacity: 0;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+  transition: opacity 0.6s ease;
+}
+
+.peer-overlay:hover .hover-overlay {
+  opacity: 0.2;
+}
+
+@media screen and (max-width: 800px) {
+  .bento-box {
+    max-width: 100%;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .bento-cup {
+    padding: 10px !important;
+  }
+
+  .bento-text {
+    font-size: 18px !important;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-wrap: nowrap;
+  }
+
+  #resume-card img {
+    margin-left: 0;
+  }
+
+  #resume-card {
+    padding-bottom: 4px;
+  }
+
+  .bento-wrapper {
+    padding: 0 !important;
+  }
+
+  .bento-cup:hover .go-up {
+    transform: translateY(-18px) !important
+  }
+
+  .bento-cup:hover .bento-text {
+    display: inline;
+  }
+}
 
 .app-nav-item {
-  color: #fff !important;
-  padding: 30px 70px 30px 0px !important;
+  color: black !important;
+  padding: 16px 20px 20px 0px !important;
 }
 
 .app-top-margin {
   height: 5vh;
-}
-
-
-
-.app-intro.body {
-  padding-top: 50px;
-  font-family: 'Orbitron', sans-serif;
-  width: 70em;
-  margin: auto;
-  letter-spacing: 4px;
-}
-
-.app-intro .website-info {
-  justify-content: space-between;
-  align-items: normal;
-}
-
-.app-intro .website-info div {
-  margin-top: 10px;
 }
 
 .button-links {
@@ -71,95 +418,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
-#email {
-  margin-top: 20px;
-}
-
-.app-intro .website-info h1 {
-  margin-bottom: 20px;
-}
-
-.app-intro .website-info p {
-  letter-spacing: 2px;
-}
-
-.app-intro .website-info li {
-  padding: 0 !important;
-  padding-right: 20px !important;
-}
-
-
-#app-intro-gif {
-  border-radius: 12px;
-  box-shadow: rgba(50, 50, 93, 0.35) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.5) 0px 18px 30px -12px inset;
-  box-sizing: border-box;
-  height: 350px;
-
-}
-
-.app-intro-info {
-  margin-top: 5vh;
-}
-
-.app-intro-info p {
-  font-family: 'Montserrat';
-  letter-spacing: normal;
-}
-
-.app-intro-row {
-  display: flex;
-  margin-top: 50px;
-}
-
-.app-intro-row img {
-
-  width: 350px;
-  border-radius: 12px;
-  box-shadow: rgba(50, 50, 93, 0.35) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.5) 0px 18px 30px -12px inset;
-  box-sizing: border-box;
-  margin-right: 30px;
-}
-
-.app-intro-info .more-info {
-  padding-top: 20px;
-  letter-spacing: normal;
-  font-family: 'Montserrat';
-
-  display: none;
-
-}
-
-.more-info.more-info-show {
-  max-height: fit-content;
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-  display: block;
-  animation: slide-down 0.4s;
-}
-
-@keyframes slide-down {
-  0% {
-    opacity: 0;
-    transform: translateY(-10%);
-  }
-
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-#school-selfie {
-
-  height: 333px;
-  width: auto;
-  margin-right: 65px;
-}
-
 
 
 .more-button {
@@ -180,6 +438,25 @@
 
 }
 
+.app-head-text {
+  font-family: 'Pixelify Sans', 'Montserrat', sans-serif;
+  padding-top: 10vh;
+  text-align: center;
+  color: #fff;
+
+  text-shadow: 8px 8px 6px rgb(70, 70, 70);
+}
+
+h1.app-head-text {
+  letter-spacing: 4px;
+  font-size: 1.5em;
+}
+
+h2.app-head-text {
+  letter-spacing: 8px;
+  font-size: 3em;
+}
+
 .start-screen {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(7, 7, 7, 0.1)), url("./pixel_water_wallpaper.jpg");
   background-size: cover;
@@ -190,6 +467,11 @@
 
 .utune-screen {
   background-image: url("https://i.pinimg.com/originals/68/ae/bf/68aebf4c71bd1d6090f87237272b01e5.gif");
+
+}
+
+.databricks-screen {
+  background-image: url("https://i.pinimg.com/originals/85/07/9a/85079a8383f3fe7bcc7cb5dc6306e4c5.gif");
 
 }
 
@@ -222,6 +504,16 @@
   height: 100%;
   color: white;
   animation: backgroundTransitionCookbookSocial 0.4s ease-in;
+}
+
+@keyframes blink {
+  from, to {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes backgroundTransitionCookbookSocial {
@@ -259,6 +551,7 @@
 }
 
 .game-content {
+  height: 100%;
   opacity: 0;
   transition: opacity 0.4s ease-in;
   width: 70em;
@@ -314,6 +607,8 @@
 }
 
 .load-screen-grid {
+  max-height: 700px;
+  overflow-x: auto;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -373,18 +668,6 @@
 
 
 
-
-.app-head-text {
-  font-family: 'Pixelify Sans', 'Montserrat', sans-serif;
-  padding-top: 10vh;
-  text-align: center;
-  color: #fff;
-
-  text-shadow: 8px 8px 6px rgb(70, 70, 70);
-
-
-}
-
 .play-button {
   font-family: 'Pixelify Sans', sans-serif;
   font-size: 30px;
@@ -396,17 +679,6 @@
 .play-button:hover {
   background-color: rgb(221, 221, 221);
 }
-
-h1.app-head-text {
-  letter-spacing: 4px;
-  font-size: 1.5em;
-}
-
-h2.app-head-text {
-  letter-spacing: 8px;
-  font-size: 3em;
-}
-
 
 
 
@@ -424,32 +696,6 @@ h2.app-head-text {
   color: white;
 
 }
-
-.reveal {
-
-  position: relative;
-  transform: translateY(150px);
-  opacity: 0;
-  transition: 1.5s all ease;
-}
-
-.reveal.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-
-
-
-#portfolio-title {
-  padding-top: 80px;
-  padding-bottom: 0;
-  letter-spacing: 8px;
-  font-weight: bold;
-}
-
-
-
 
 .spotify-card-titles {
   padding-top: 0 !important;
@@ -482,57 +728,7 @@ h2.app-head-text {
   line-height: 50px;
 }
 
-
-
-
-.website-info {
-
-  margin-top: 2vh;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-
-}
-
-
-
-#contact-list {
-  margin: 20px auto auto auto;
-  padding-left: 0;
-  list-style: none;
-  display: block;
-}
-
-#contact-list>li {
-  display: inline-block;
-  padding: 5px;
-}
-
-.contact-icon {
-  width: 30px;
-  height: 30px;
-  margin-bottom: 4px;
-}
-
-.contact-icon-text {
-  width: auto;
-  font-weight: bold;
-  font-size: 15px;
-  padding-top: 5px;
-}
-
 @media screen and (max-width: 70em) {
-
-
-  .app-intro.body {
-    width: unset;
-    margin: 20px;
-    padding-top: unset;
-    letter-spacing: 3px;
-  }
-
 
   .name-title h1 {
     font-size: 20px;
@@ -547,19 +743,6 @@ h2.app-head-text {
     font-size: 14px;
   }
 
-  #email {
-    font-size: 14px;
-  }
-
-  #app-intro-gif {
-    width: 45vw;
-    max-height: 300px;
-    max-width: 380px;
-    height: fit-content;
-  }
-
-
-
   .button-links {
     margin: 0;
   }
@@ -571,46 +754,6 @@ h2.app-head-text {
   .button-links a {
     padding: 5px 10px;
   }
-
-  #contact-list {
-    margin: 0;
-
-    justify-content: left;
-    display: flex;
-
-  }
-
-  .app-intro-info h1 {
-    font-size: 20px;
-    letter-spacing: 2px;
-    font-weight: bold;
-  }
-
-  .app-intro-row h3,
-  .app-intro-info h4 {
-    font-size: 16px;
-    letter-spacing: 2px;
-  }
-
-  .app-intro-info p {
-    font-size: 14px;
-    letter-spacing: normal;
-    line-height: normal;
-  }
-
-  .more-info-show {
-    font-size: 14px;
-    letter-spacing: normal;
-    line-height: normal;
-  }
-
-  .app-intro-row img:not(#school-selfie) {
-    height: fit-content;
-    margin-right: 20px;
-    min-height: 270px;
-  }
-
-
 
   .App-nav {
     font-size: .9em !important;
@@ -642,28 +785,6 @@ h2.app-head-text {
     letter-spacing: 1px;
     font-size: 16px;
     line-height: 30px;
-  }
-
-
-
-  .contact {
-    font-size: 15px;
-  }
-
-  .app-intro .website-info {
-    justify-content: space-evenly;
-  }
-
-  #website-head-text {
-    justify-content: space-between;
-    flex-wrap: nowrap;
-  }
-
-
-
-  .more-info-show img {
-    height: 250px;
-    width: unset !important;
   }
 
   .load-screen-grid {
@@ -744,78 +865,29 @@ h2.app-head-text {
     -webkit-overflow-scrolling: touch;
   }
 
-
 }
 
 
 
-
 @media screen and (max-width: 800px) {
+
+  h1.app-head-text {
+    font-size: 5vw;
+  }
+
+  h2.app-head-text {
+    font-size: 9vw;
+  }
 
   .start-screen {
     background-image: url("./pixel_water_wallpaper.jpg");
     box-shadow: inset 0 0 20rem rgba(7, 7, 7, 0.4);
   }
 
-  .app-intro .website-info div.name-title {
-    margin-top: 0;
-
-  }
-
-  .website-info {
-    margin-top: 0;
-  }
-
-  .website-info img {
-    height: auto !important;
-  }
 
   .app-top-margin {
     height: 12vh;
     background: black;
-  }
-
-  .work-experience-titles {
-    border-radius: 12px;
-    padding: 10vh 15px 20px 15px;
-    text-align: center;
-    font-weight: bold;
-    height: 30vh;
-    margin: -10px -10px 10px -10px;
-    color: white;
-    background-size: cover;
-    background-position: center;
-  }
-
-  #frontend-title {
-
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(7, 7, 7, 0.5)), url("https://i.pinimg.com/originals/9f/92/6c/9f926c8c220127d81c8ba6897aa8d5db.gif");
-
-  }
-
-  #autodesk-title {
-
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(7, 7, 7, 0.4)), url("https://i.pinimg.com/originals/c4/cb/e0/c4cbe0d6552d2fb6c1483f6bff42225d.gif");
-
-  }
-
-  #header-text {
-    padding: 10px 20px;
-    margin: 0px -10px;
-    color: white;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(7, 7, 7, 0.4)), url("https://i.pinimg.com/originals/f5/8f/e8/f58fe8e19a7e25ddf0c459a3599261d6.gif");
-    background-size: cover;
-    background-position: center;
-    min-height: 230px;
-  }
-
-  #header-text h1,
-  #header-text h2 {
-    font-weight: bold;
-  }
-
-  #education {
-    width: 100%;
   }
 
   .app-game-scene {
@@ -870,81 +942,11 @@ h2.app-head-text {
     line-height: normal;
   }
 
-
-
-  .app-intro.body {
-    padding: 0 10px;
-    margin: 0;
-    padding-top: 0;
-  }
-
-
-  #app-intro-gif {
-    display: none;
-  }
-
-  #contact-list {
-    margin-top: 10px;
-    justify-content: center;
-  }
-
-
-
-  .app-intro-row {
-    flex-direction: column;
-  }
-
-  .app-intro-row img {
-    display: none;
-  }
-
-
-
-  .website-info {
-    align-items: center !important;
-  }
-
-  .more-info-show h5 {
-    font-size: 16px;
-    letter-spacing: 2px;
-  }
-
-  #education-row {
-    display: flex;
-    align-items: center;
-    flex-direction: column-reverse;
-    margin-top: 20px;
-  }
-
-  #school-selfie {
-    display: block;
-    margin-right: 0;
-  }
-
-  .more-info-show img {
-    width: 250px !important;
-  }
-
-
-
-  .website-info .button-links li {
-    margin: 3px !important;
-    padding-right: 0 !important;
-  }
-
-
   .App-nav {
     font-size: 12px !important;
     padding: .8em .6em .8em .6em !important;
   }
 
-  h1.app-head-text {
-    font-size: 5vw;
-  }
-
-  h2.app-head-text {
-    font-size: 9vw;
-  }
 
   .home-h1 {
 
@@ -963,10 +965,6 @@ h2.app-head-text {
     letter-spacing: 0px;
     font-size: 10px;
     line-height: 30px;
-  }
-
-  #website-head-text {
-    display: block;
   }
 
 
