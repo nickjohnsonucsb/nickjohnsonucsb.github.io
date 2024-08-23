@@ -244,7 +244,7 @@ const Home = () => {
     <body>
       <AppNavbar />
 
-      <div className="position-relative video-background overflow-hidden vh100">
+      <div className="position-relative video-background" onP>
         <video
           onCanPlayThrough={() => {
             setIsVidLoaded(true);
@@ -253,6 +253,8 @@ const Home = () => {
           onPlay={() => {
             setIsVidLoaded(true);
           }}
+          controls
+          preload="metadata"
           autoPlay
           playsInline
           muted
@@ -261,7 +263,7 @@ const Home = () => {
             "position-fixed min-h-100 min-w-100 " +
             (isVidLoaded ? "opacity-1" : "opacity-0")
           }
-          poster="https://res.cloudinary.com/dukfn2auq/image/upload/v1724344680/zpeuyljbohnycvuryvhr.webp"
+          poster="https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_auto/v1724344680/zpeuyljbohnycvuryvhr.webp"
           style={{
             minWidth: "100%",
             zIndex: 0,
@@ -270,8 +272,8 @@ const Home = () => {
             transition: "opacity 2.5s cubic-bezier(0.39, 0.58, 0.57, 1)",
           }}
         >
-          <source src="https://res.cloudinary.com/dukfn2auq/video/upload/v1724442280/mkamvvkkwek8qnqxq9cc.mp4" />
-          <source src="https://res.cloudinary.com/dukfn2auq/video/upload/v1724343619/ygpgde2pqjtmqhcdohno.webm" />
+          <source src="https://res.cloudinary.com/dukfn2auq/video/upload/f_auto,q_auto,dpr_auto/v1724442280/mkamvvkkwek8qnqxq9cc.mp4" />
+          <source src="https://res.cloudinary.com/dukfn2auq/video/upload/f_auto,q_auto,dpr_auto/v1724343619/ygpgde2pqjtmqhcdohno.webm" />
         </video>
         <div className="position-absolute w-100 h-100 overlay-video" />
         <div
