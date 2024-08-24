@@ -253,12 +253,15 @@ const Home = () => {
           onPlay={() => {
             setIsVidLoaded(true);
           }}
-          controls
-          preload="metadata"
+          onPause={() => {
+            const video = document.getElementById('video')
+            video?.play()
+          }}
           autoPlay
           playsInline
           muted
           loop
+          id={'video'}
           className={
             "position-fixed min-h-100 min-w-100 " +
             (isVidLoaded ? "opacity-1" : "opacity-0")
@@ -272,8 +275,8 @@ const Home = () => {
             transition: "opacity 2.5s cubic-bezier(0.39, 0.58, 0.57, 1)",
           }}
         >
-          <source src="https://res.cloudinary.com/dukfn2auq/video/upload/f_auto,q_auto,dpr_auto/v1724442280/mkamvvkkwek8qnqxq9cc.mp4" />
-          <source src="https://res.cloudinary.com/dukfn2auq/video/upload/f_auto,q_auto,dpr_auto/v1724343619/ygpgde2pqjtmqhcdohno.webm" />
+          <source src="https://res.cloudinary.com/dukfn2auq/video/upload/f_mp4,vc_h265,q_auto,dpr_1.0/v1724442280/mkamvvkkwek8qnqxq9cc.mp4" />
+          <source src="https://res.cloudinary.com/dukfn2auq/video/upload/f_auto:video,q_auto/ygpgde2pqjtmqhcdohno" />
         </video>
         <div className="position-absolute w-100 h-100 overlay-video" />
         <div
