@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.c88ec6b9.css",
-    "main.js": "/static/js/main.cc107004.js",
+    "main.css": "/static/css/main.966e5f8d.css",
+    "main.js": "/static/js/main.e4ca3404.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
     "static/media/News-And-Events.png": "/static/media/News-And-Events.9b81c76460d6fb4d11c8.png",
     "static/media/Data-Tool-Explorer-Table.png": "/static/media/Data-Tool-Explorer-Table.4ad894ff619971d58623.png",
@@ -23,12 +23,12 @@
     "static/media/load-screen.png": "/static/media/load-screen.873fe9a936f6a7eb606d.png",
     "static/media/Spotify_Logo_RGB_Green.png": "/static/media/Spotify_Logo_RGB_Green.0c4ae91bae23217d39c9.png",
     "index.html": "/index.html",
-    "main.c88ec6b9.css.map": "/static/css/main.c88ec6b9.css.map",
-    "main.cc107004.js.map": "/static/js/main.cc107004.js.map",
+    "main.966e5f8d.css.map": "/static/css/main.966e5f8d.css.map",
+    "main.e4ca3404.js.map": "/static/js/main.e4ca3404.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c88ec6b9.css",
-    "static/js/main.cc107004.js"
+    "static/css/main.966e5f8d.css",
+    "static/js/main.e4ca3404.js"
   ]
 }
