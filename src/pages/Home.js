@@ -241,7 +241,6 @@ const JOBS = [
 const Home = () => {
   const [isVidLoaded, setIsVidLoaded] = useState(false);
   const isMobile = window.innerWidth <= 500;
-  console.log(window.innerWidth);
   return (
     <body>
       <AppNavbar />
