@@ -18,7 +18,7 @@
   position: relative;
   height: 90vh;
   overflow: hidden;
-  background: url('https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_30/v1724344680/zpeuyljbohnycvuryvhr.webp') no-repeat center fixed;
+  background: url('https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_25/v1724344680/zpeuyljbohnycvuryvhr.webp') no-repeat center fixed;
   background-size: cover;
   width: 100%;
   max-height: 1080px;
@@ -179,7 +179,7 @@ p.subtitle-small {
   }
 
   .video-background {
-    background: url("https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_30/v1724344680/zpeuyljbohnycvuryvhr.webp") no-repeat center;
+    background: url("https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_25/v1724344680/zpeuyljbohnycvuryvhr.webp") no-repeat center;
     min-height: 575px;
     height: 80vh;
   }
@@ -410,7 +410,7 @@ p.subtitle-small {
 
 @media screen and (max-width: 500px) {
   .video-background {
-    background: url("https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_70/6775423-uhd-1440-2560-24fps_skr8rx") no-repeat center;
+    background: url("https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_50/6775423-uhd-1440-2560-24fps_skr8rx") no-repeat center;
     background-size: cover;
   }
 }

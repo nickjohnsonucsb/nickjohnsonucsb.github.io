@@ -45,7 +45,8 @@ const JOBS = [
         thousands of wait-listed users. I <b>develop core UI/UX features</b>{" "}
         using{" "}
         <b>
-          Typescript, React.js, Next.js, MobX, Tailwind, Node, and Supabase,
+          Typescript, React.js, Next.js, MobX, Tailwind, Node, and Supabase
+          (PostgreSQL),
         </b>{" "}
         prompting thousands of new sign-ups and praise from{" "}
         <a
@@ -74,13 +75,12 @@ const JOBS = [
         </li>
         <li>
           Shipped the <b>undo/redo action feature</b> by designing a{" "}
-          <b>command pattern</b>
-          with a transaction management queue and log that also manages
-          error-handling and validation for each request, and decouples the
-          client’s UI from the backend.
+          <b>command pattern</b> with a transaction management queue and log
+          that also manages error-handling and validation for each request, and
+          decouples the client’s UI from the backend.
         </li>
         <li>
-          Designed a <b>Real-Time, Online Auto-Save feature</b>, and designed a
+          Designed a <b>Real-Time, Online Auto-Save feature</b> with a
           prioritized mutex lock that manages concurrency and prioritizes the
           last request in a sequence for minimizing sent requests and bandwidth
           usage.
@@ -88,7 +88,7 @@ const JOBS = [
         <li>
           Used React-PDF to build our first ever{" "}
           <b>custom attachment and PDF viewer</b>. I built several pdf
-          functionalities from scratch including, the Search Text feature to
+          functionalities from scratch including the Search Text feature to
           find specified pieces of text from the parsed PDF data.
         </li>
       </ul>
@@ -122,7 +122,7 @@ const JOBS = [
         <li>
           <span className="d-flex flex-row justify-content-between  align-items-center">
             <span>
-              Architected a <b>cross-app integration</b>c between Info360
+              Architected a <b>cross-app integration</b> between Info360
               Insight and InfoWater Pro by scaling APIs to support both
               'virtual' and 'physical' sensor data for a dynamic analytics
               feature.
@@ -175,7 +175,7 @@ const JOBS = [
 
     summary: (
       <>
-        Front-End engineer for{" "}
+        Frontend engineer for{" "}
         <a
           href="http://rcd.ucsb.edu/"
           target="_blank"
@@ -190,7 +190,7 @@ const JOBS = [
     description: (
       <ul>
         <li>
-          Designed responsive web page templates under a university theme with
+          Designed responsive web page templates under a university theme with {' '}
           <b>Twig, PHP, Javascript, Bootstrap CSS, and HTML</b>, and resolved
           issues with hosting, security, and performance with Pantheon.
         </li>
@@ -269,8 +269,8 @@ const Home = () => {
           }
           poster={
             isMobile
-              ? "https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_70/6775423-uhd-1440-2560-24fps_skr8rx"
-              : "https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_30/v1724344680/zpeuyljbohnycvuryvhr.webp"
+              ? "https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_50/6775423-uhd-1440-2560-24fps_skr8rx"
+              : "https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_25/v1724344680/zpeuyljbohnycvuryvhr.webp"
           }
           style={{
             minWidth: "100%",
