@@ -240,6 +240,8 @@ const JOBS = [
 
 const Home = () => {
   const [isVidLoaded, setIsVidLoaded] = useState(false);
+  const isMobile = window.innerWidth <= 500;
+  console.log(window.innerWidth);
   return (
     <body>
       <AppNavbar />
@@ -254,19 +256,22 @@ const Home = () => {
             setIsVidLoaded(true);
           }}
           onPause={() => {
-            const video = document.getElementById('video')
-            video?.play()
+            const video = document.getElementById("video");
+            video?.play();
           }}
           autoPlay
           playsInline
           muted
           loop
-          id={'video'}
+          id={"video"}
           className={
-            "position-fixed min-h-100 min-w-100 " +
-            (isVidLoaded ? "opacity-1" : "opacity-0")
+            "min-h-100 min-w-100 " + (isVidLoaded ? "opacity-1" : "opacity-0")
           }
-          poster="https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_auto/v1724344680/zpeuyljbohnycvuryvhr.webp"
+          poster={
+            isMobile
+              ? "https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_70/6775423-uhd-1440-2560-24fps_skr8rx"
+              : "https://res.cloudinary.com/dukfn2auq/image/upload/f_auto,q_30/v1724344680/zpeuyljbohnycvuryvhr.webp"
+          }
           style={{
             minWidth: "100%",
             zIndex: 0,
@@ -275,8 +280,14 @@ const Home = () => {
             transition: "opacity 2.5s cubic-bezier(0.39, 0.58, 0.57, 1)",
           }}
         >
-          <source src="https://res.cloudinary.com/dukfn2auq/video/upload/f_mp4,vc_h265,q_auto,dpr_1.0/v1724442280/mkamvvkkwek8qnqxq9cc.mp4" />
-          <source src="https://res.cloudinary.com/dukfn2auq/video/upload/f_auto:video,q_auto/ygpgde2pqjtmqhcdohno" />
+          {isMobile ? (
+            <source src="https://res.cloudinary.com/dukfn2auq/video/upload/f_auto:video,q_auto,h_700/6775423-uhd_1440_2560_24fps_online-video-cutter.com_v9ebug" />
+          ) : (
+            <>
+              <source src="https://res.cloudinary.com/dukfn2auq/video/upload/f_mp4,vc_h265,q_auto,dpr_1.0/v1724442280/mkamvvkkwek8qnqxq9cc.mp4" />
+              <source src="https://res.cloudinary.com/dukfn2auq/video/upload/f_auto:video,q_auto/ygpgde2pqjtmqhcdohno" />
+            </>
+          )}
         </video>
         <div className="position-absolute w-100 h-100 overlay-video" />
         <div
